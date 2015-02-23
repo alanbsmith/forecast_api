@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: forecast_api_development
+
+test:
+  <<: *default
+  database: forecast_api_test
+
+production:
+  <<: *default
+  database: forecast_api_production
+  username: forecast_api
+  password: <%= ENV['forecast_api_DATABASE_PASSWORD'] %>
